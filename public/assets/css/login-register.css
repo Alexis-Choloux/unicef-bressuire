@@ -1,0 +1,28 @@
+.authForm {
+    animation: 500ms ease-out slideIn;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 20px;
+    padding: 20px 50px 20px 50px;
+    transition: 300ms;
+}
+.authForm:hover {
+    transition: 300ms;
+    box-shadow: 5px 5px 20px rgba(128, 128, 128, 0.26);
+}
+
+@media screen and (max-width: 1000px) {
+    #register {
+        width: 98%;
+    }
+}
+@media screen and (max-width: 765px) {
+    #register {
+        padding: 10px 10px 10px 10px;
+        margin-left: 2px;
+    }
+}
+
+
+#forgotPassword {
+    font-size: 13px;
+}

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commande validée - Unicef Bressuire
+{% endblock %}
+
+{% block css %}
+	<link href="{{ asset('assets/css/order.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+
+	<div class="container col-md-8 offset-md-2 mt-3 mb-5">
+		<h1>
+			Commande validée 
+			<span class="text-warning ms-3">
+				<i class="fas fa-box"></i>
+			</span>
+		</h1>
+		<hr>
+		<p>
+			Votre commande a bien été enregistrée.
+		</p>
+		<p class="mt-2">
+			Un membre de notre équipe va prendre contact avec vous par 
+            <span class="fw-bold">{{ order.getContactPreference }} </span> 
+			pour fixer un rendez-vous à :
+		</p>
+		<p class="fw-bold">
+			{{ order.cacAddress.name }}<br>
+			{{ order.cacAddress.address }}<br>
+			{{ order.cacAddress.postal }}
+			{{ order.cacAddress.city }}
+		</p>
+		<p class="mt-2">
+			Nous vous remercions pour votre achat responsable, et pour votre contribution. <br>
+			<span class="fst-italic text-muted">
+				L'équipe Unicef Bressuire
+			</span>
+		</p>
+		<hr>
+		<p class="fst-italic text-muted">
+			Pour annuler votre commande, remplissez le formulaire dans la rubrique 
+			<a href="{{ path('contact') }}">Contact</a>
+		</p>
+		<a href="{{ path('home') }}" class="btn btn-uniblue me-3" role="button">
+			Retour à l'accueil
+		</a>
+		<a href="{{ path('account_order') }}" class="btn btn-uniblue" role="button" id="orderBtn">
+			Accéder à mes commandes
+		</a>
+	</div>
+{% endblock %}

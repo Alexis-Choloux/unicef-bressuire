@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes coordonnées - Unicef Bressuire
+{% endblock %}
+
+{% block css %}
+<link href="{{ asset('assets/css/account.css') }}" rel="stylesheet"/> 
+<link href="{{ asset('assets/css/effects.css') }}" rel="stylesheet"/> 
+{% endblock %}
+
+{% block content %}
+	<div class="container col-md-8 offset-md-2 mt-3 mb-5" id="addressesContainer">
+		<h2>Mes coordonnées</h2>
+
+		{% if app.user.addresses|length == 0 %}
+			<p>Vous n'avez pas encore ajouté de coordonnées. Ces dernières sont indispensables pour passer commande sur notre site. Elles nous permettent d'entrer en contact avec vous, si nécessaire.</p>
+			<a href="{{ path('account_address_add') }}">
+				<div class="card">
+					<div class="card-body text-center">
+						<p class="text-success">
+							<i class="fas fa-plus-circle fa-7x"></i>
+						</p>
+						<h5 class="card-title">
+							Ajouter des coordonnées
+						</h5>
+					</div>
+				</div>
+			</a>
+		{% else %}
+
+			<div class="row ms-5 mt-4" id="addresses">
+				{% for address in app.user.addresses %}
+					<div class="col-md-3 me-3 mb-3">
+						<div class="card account-card">
+							<div class="card-header text-end">
+								<a href="{{ path('account_address_edit', {'id': address.id}) }}" class="text-secondary me-2">
+									<i class="fas fa-edit"></i>
+								</a>
+								<a href="{{ path('account_address_delete', {'id': address.id}) }}" class="text-danger">
+									<i class="fas fa-trash-alt"></i>
+								</a>
+							</div>
+							<div class="card-body text-center">
+								<p>
+									<strong>
+										{{ address.phone }}
+									</strong><br>
+									{{ address.address }}<br>
+									{{ address.postal }}<br>
+									{{ address.city }}
+								</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+
+				<div class="col-3 me-3 mb-3">
+					<a href="{{ path('account_address_add') }}">
+						<div class="card account-card" id="addCard">
+							<div class="card-body text-center d-flex flex-column justify-content-center">
+								<p class="text-success">
+									<i class="fas fa-plus-circle fa-3x"></i>
+								</p>
+								<h6 class="card-title">
+									Ajouter des coordonnées
+								</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+
+
+			{% endif %}
+		</div>
+	{% endblock %}

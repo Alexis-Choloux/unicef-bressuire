@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion - Unicef Bressuire
+{% endblock %}
+
+{% block css %}
+	<link href="{{ asset('assets/css/effects.css') }}" rel="stylesheet"/> 
+	<link href="{{ asset('assets/css/login-register.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+	<div class="container col-md-8 offset-md-2 mt-3 mb-5">
+		{% if error %}
+			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
+
+		{% for message in app.flashes('notice') %}
+			<div class="alert alert-warning">{{ message }}</div>
+		{% endfor %}
+
+		{% if app.user %}
+			<div class="mb-3">
+				Vous êtes connecté en tant que :
+				{{ app.user.username }}
+				!
+				<a href="{{ path('app_logout') }}">Se deconnecter</a>
+			</div>
+		{% else %}
+		<h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
+		<div class="col-md-6 offset-md-1 authForm">
+			<form method="post">
+				<label for="inputEmail">Email :</label>
+				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Saisissez ici votre email" required autofocus>
+				<label for="inputPassword" class="mt-2">Mot de passe :</label>
+				<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Saisissez ici votre mot de passe" required>
+
+				<input
+				type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+				<p class="text-center mt-2">
+					<a href="{{ path('reset_password') }}" id="forgotPassword">
+						Mot de passe oublié ?
+					</a>
+				</p>
+				<div class="text-end">
+					<button class="btn btn-uniblue mt-2" type="submit">
+						Se connecter
+					</button>
+				</div>
+			</form>
+		</div>
+
+		{% endif %}
+
+	</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Page introuvable - Unicef Bressuire
+{% endblock %}
+
+{% block content %}
+<div class="container col-md-8 offset-md-2 mt-3">
+    <h2>
+        <span class="me-2 text-danger">
+            <i class="fas fa-exclamation-triangle"></i>
+        </span>
+        Page introuvable
+    </h2>
+    <p>
+        Cette page n'existe pas. S'il s'agit d'une erreur interne, merci de nous le signaler sur notre page contact.
+        Sinon, merci de vous rendre sur une page existante.
+    </p>
+    <div class="mt-5 text-end">
+        <a href="{{ path('contact') }}" class="btn btn-uniblue" role="button">Formulaire de contact</a>
+        <a href="{{ path('home') }}" class="btn btn-uniblue ms-2" role="button">Revenir à l'accueil</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,260 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Accueil - Unicef Bressuire
+{% endblock %}
+
+{% block css %}
+  <link href="{{ asset('assets/css/effects.css') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid text-center" id="hero">
+    <div class="row">
+      <div class="col-md-2 mb-3 d-flex justify-content-center align-items-center">
+        <button onclick="playPause()" name="heroBtn" id="heroBtn">
+          <i class="fas fa-pause-circle fa-7x"></i>
+        </button>
+      </div>
+      <div class="col-md-8" id="videoContainer">
+        <video autoplay muted loop id="heroVideo">
+          <source src="{{
+            asset(
+              'assets/videos/hero-video-unicef-france.mp4'
+            )
+            }}"
+            type="video/mp4" />
+        </video>
+      </div>
+      <div class="col-md-2 mt-3 mb-3 d-flex flex-column justify-content-center align-items-center"
+        id="heroSource">
+        <p class="text-white">
+          Source :
+        </p>
+        <a href="https://www.youtube.com/watch?v=9_tkZone9o8" id="heroLink">Unicef France</a>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid bg-grey text-center">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h2 class="mt-5 fs-1">
+          UNICEF, c'est quoi ?
+        </h2>
+        <p class="mt-5 mb-5 ms-4 me-4 fs-5 text-muted">
+          Fondée en 1946, l'Unicef est une agence des
+          <a href="https://www.un.org/fr/"
+            target="_blank"
+            class="fw-bold text-uniblue"
+            rel="noreferrer">
+            Nations Unies
+          </a>
+          dont le but est de défendre les
+          <a href="https://www.unicef.org/fr/convention-droits-enfant/droits-enfants"
+            target="_blank"
+            class="fw-bold text-uniblue"
+            rel="noreferrer">
+            droits des enfants
+          </a>
+          dans le monde entier, en répondant à leurs besoins essentiels, en les protégeant,
+          et en leur donnant accès à l'éducation.
+        </p>
+        <hr class="col-2 offset-5" />
+        <p class="mt-5 ms-4 me-4 fs-5 text-muted">
+          UNICEF signifie originellement "United Nations International
+          Children's Emergency Fund" (Fonds d'urgence international des Nations
+          Unies pour l'enfance, en français) mais prend officiellement le nom de
+          <a href="https://fr.wikipedia.org/wiki/Fonds_des_Nations_unies_pour_l%27enfance"
+            target="_blank"
+            class="fw-bold text-uniblue"
+            rel="noreferrer">
+            Fonds des Nations Unies pour l'enfance
+          </a>
+          en 1953, lorsqu'elle est devenue un organe des Nations Unies.
+        </p>
+        <p class="mt-4 ms-4 me-4 fs-5 text-muted">
+          L'Unicef a participé à la création et la rédaction de la
+          <a href="https://www.unicef.org/fr/convention-droits-enfant"
+            target="_blank"
+            class="fw-bold text-uniblue"
+            rel="noreferrer">
+            Convention relative aux droits de l'enfant
+          </a>.
+        </p>
+        <p class="mt-4 mb-5 ms-4 me-4 fs-5 text-muted">
+          Elle a reçu le
+          <a href="https://www.unicef.org/french/about/history/index_nobel_prize.html"
+            target="_blank"
+            class="fw-bold text-uniblue"
+            rel="noreferrer">
+            prix Nobel de la paix
+          </a> en 1965.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid text-center">
+    <div class="col-md-8 offset-md-2">
+      <h2 class="mt-5 fs-1">
+        Nos actions
+      </h2>
+      <div class="row mt-5">
+        <div class="col-md-3">
+          <div class="card mb-3 home-card">
+            <div class="mt-3 text-uniblue">
+              <i class="fas fa-medkit fa-6x"></i>
+            </div>
+            <div class="mt-3">
+              <h3>
+                Santé
+              </h3>
+              <p>Vaccinations, préventions, soins...</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mb-3 home-card">
+            <div class="mt-3 text-uniblue">
+              <i class="fas fa-utensils fa-6x"></i>
+            </div>
+            <div class="mt-3">
+              <h3>
+                Nutrition
+              </h3>
+              <p>Lutte contre la malnutrition, les carences...</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mb-3 home-card">
+            <div class="mt-3 text-uniblue">
+              <i class="fas fa-hand-holding-water fa-6x"></i>
+            </div>
+            <div class="mt-3">
+              <h3>
+                Eau, hygiène
+              </h3>
+              <p>Accès à l'eau et à l'eau potable, lavages, toilettes...</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mb-3 home-card">
+            <div class="mt-3 text-uniblue">
+              <i class="fas fa-shield-alt fa-6x"></i>
+            </div>
+            <div class="mt-3">
+              <h3>
+                Protection
+              </h3>
+              <p>Maltraitance, travail et mariage forcés, enfants soldats...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-3">
+          <div class="card mb-3 home-card">
+            <div class="mt-3 text-uniblue">
+              <i class="fas fa-heartbeat fa-6x"></i>
+            </div>
+            <div class="mt-3">
+              <h3>
+                Urgences
+              </h3>
+              <p>Catastrophes natuelles, conflits armés, épidémies...</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mb-3 home-card">
+            <div class="mt-3 text-uniblue">
+              <i class="fas fa-book-reader fa-6x"></i>
+            </div>
+            <div class="mt-3">
+              <h3>
+                Education
+              </h3>
+              <p>Enseignements, égalités filles-garçons...</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mb-3 home-card">
+            <div class="mt-3 text-uniblue">
+              <i class="fas fa-users fa-6x"></i>
+            </div>
+            <div class="mt-3">
+              <h3>
+                Inclusion
+              </h3>
+              <p>Inclusion sociale, lutte contre la discrimination...</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mb-3 home-card">
+            <div class="mt-3 text-uniblue">
+              <i class="fas fa-viruses fa-6x"></i>
+            </div>
+            <div class="mt-3">
+              <h3>
+                VIH/Sida
+              </h3>
+              <p>Prévention de la transmission mère/enfant, soins...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid bg-uniblue text-center mt-5">
+    <div class="col-md-8 offset-md-2">
+      <div class="row">
+        <h2 class="mt-5 fs-1">
+          Agir
+        </h2>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <h4>
+            Faire un don à Unicef France
+          </h4>
+          <p class="text-white mt-4  actingSection">
+            <i class="fas fa-donate fa-7x"></i>
+          </p>
+          <a class="btn btn-uniyellow mt-3 mb-5" href="https://www.unicef.fr/faire-un-don" target="_blank" role="button" rel="noreferrer">
+            Faire un don
+          </a>
+        </div>
+        <div class="col-md-4">
+          <h4>
+            S'engager avec Unicef Bressuire
+          </h4>
+          <p class="text-white mt-4  actingSection">
+            <i class="fas fa-child fa-7x"></i>
+          </p>
+          <a class="btn btn-uniyellow mt-3 mb-5" href="{{ path('contact') }}" role="button">
+            Devenir bénévole
+          </a>
+        </div>
+        <div class="col-md-4 mb-5">
+          <h4>
+            Faire un achat responsable
+          </h4>
+          <p class="text-white mt-4">
+            <i class="fas fa-cart-plus fa-7x"></i>
+          </p>
+          <a class="btn btn-uniyellow mt-3 mb-5" href="{{ path('shop') }}" role="button">
+            Boutique en ligne
+          </a>
+        </div>
+      </div>
+      </div>
+  </div>  
+{% endblock %}
+
+{% block js %}
+  <script src="{{ asset('assets/js/home.js') }}"></script>
+{% endblock %}

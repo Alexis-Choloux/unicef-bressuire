@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma commande - Unicef Bressuire
+{% endblock %}
+
+{% block css %}
+<link href="{{ asset('assets/css/account.css') }}" rel="stylesheet"/> 
+{% endblock %}
+
+{% block content %}
+	<div class="container col-md-8 offset-md-2 mt-3 mb-5">
+		<h2>Ma commande :</h2>
+		<p>
+			<span class="badge rounded-pill bg-warning text-dark mt-1">
+				{{ order.orderId }}
+			</span>
+			<span class="ms-2 text-muted fs-6">
+				Date de la commande :
+				{{ order.createdAt|date("d/m/Y") }}
+			</span>
+		</p>
+		<hr>
+			<table class="table table-borderless mt-3">
+				<thead>
+					<tr>
+						<th scope="col">Produit</th>
+						<th scope="col" class="text-start disableOnMobile">Statut</th>
+						<th scope="col" class="text-center">Prix</th>
+						<th scope="col" class="text-center">Quantité</th>
+						<th scope="col" class="text-end">Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for article in order.orderDetails %}
+					<tr>
+						<td class="fw-bold fst-italic text-uniblack">
+							{{ article.product }}
+						</td>
+						<td class="text-start disableOnMobile">
+							{% if order.state == 0 %}
+								En cours de préparation
+							{% elseif order.state == 1 %}
+								Prête
+							{% elseif order.state == 2 %}
+								Réceptionnée
+							{% endif %}
+						</td>
+						<td class="text-center">
+							{{ (article.price / 100)|number_format('2', ',', '.') }}€
+						</td>
+						<td class="text-center fw-bold">
+							x{{ article.quantity }}
+						</td>
+						<td class="text-end">
+							{{ (article.total / 100)|number_format('2', ',', '.') }}€
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+	</div>
+{% endblock %}

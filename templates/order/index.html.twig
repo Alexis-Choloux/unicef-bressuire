@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Validation commande - Unicef Bressuire
+{% endblock %}
+
+{% block css %}
+	<link href="{{ asset('assets/css/effects.css') }}" rel="stylesheet"/> 
+	<link href="{{ asset('assets/css/order.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+<div class="container col-md-8 offset-md-2 mt-3 mb-5">
+
+	<div class="row mt-4">
+		<div class="col-md-5">
+			<h1>Ma commande</h1>
+
+			<div class="card mt-4 mb-4">
+				<div class="card-body">
+					{% set total = null %}
+
+					{% for cart in cart %}
+						<div class="row">
+							<div class="col-md-6">
+								<img src="/assets/images/products/{{ cart.product.image }}" alt="{{ cart.product.slug }}" class="cart-image">
+							</div>
+							<div class="col-md-6 text-center d-flex flex-column justify-content-center">
+								<p>{{ cart.product.name }}</p>
+								<p>x{{ cart.quantity }}</p>
+							</div>
+						</div>
+						{% set total = total + cart.product.price * cart.quantity %}
+					{% endfor %}
+				</div>
+				<div class="card-footer text-end">
+					<p>Total :
+						<strong>
+							{{ (total / 100)|number_format(2, ',', '.') }}
+							€
+						</strong>
+					</p>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-md-6 offset-md-1 mt-3">
+			<h4>Point de retrait (Click&Collect) et Coordonnées</h4>
+			<hr>
+			{% set formHtml %}
+			{{ form_start(form, {action:path('order_validation')}) }}
+
+			<div>
+				{{ form_label(form.addresses, 'Sélectionnez vos coordonnées de contact :')}}
+				{{ form_row(form.addresses) }}
+				<a href="{{ path('account_address_add') }}" id="addContactLink">
+					Ajouter de nouvelles coordonnées
+				</a>
+				<hr>
+			</div>
+
+			<div class="visually-hidden" id="sectionCacAddresses">
+				{{ form_label(form.cacaddresses, 'Choisissez l\'adresse à laquelle vous souhaitez récupérer votre commande et procéder au paiment :')}}
+									{{ form_row(form.cacaddresses) }}
+									<hr class="mt-4">
+							</div>
+							<div class="visually-hidden" id="sectionContact">
+								{{ form_label(form.contact_preference, 'Comment souhaitez vous être contacté par nos équipes ?')}}
+									{{ form_row(form.contact_preference) }}
+									<hr class="mt-4">
+							</div>
+
+							<div class="visually-hidden" id="sectionAvailab">
+								{{ form_label(form.availabilities, 'Précisez-nous vos disponibilités pour récuperer votre commande :')}}
+									{{ form_row(form.availabilities) }}
+									<hr class="mt-4">
+							</div>
+						
+						<div class="col-12 text-end visually-hidden" id="sectionSubmit">
+							{{ form_row(form.submit) }}
+						</div>
+
+					{{ form_end(form) }}
+				{% endset %}
+
+					{{ formHtml|replace({' / ' : '<br/>'})|raw }}
+
+					<p class="text-muted mt-3">
+						Rappel : Nous ne prenons pas de carte, ni de chèque. 100% de votre achat est reversé à Unicef France.
+					</p>
+				</div>
+			</div>
+		</div>
+{% endblock %}
+
+{% block js %}
+	<script src="{{ asset('assets/js/order.js') }}"></script>
+{% endblock %}

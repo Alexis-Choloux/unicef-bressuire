@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ product.name }}
+	- Unicef Bressuire
+{% endblock %}
+
+{% block css %}
+<link href="{{ asset('assets/css/effects.css') }}" rel="stylesheet"/>
+<link href="{{ asset('assets/css/product.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+	<div class="container col-md-8 offset-md-2 mt-3 mb-5">
+        <h1>{{ product.name }}</h1>
+
+        <div class="row d-flex align-items-center">
+            <div class="col-md-6">
+                <img src="/assets/images/products/{{ product.image }}" alt="{{ product.slug }}" class="productImg">
+            </div>
+            <div class="col-md-6 productDetail">
+                <p id="productDesc">
+                    {{ product.description }}
+                </p>
+                <p class="fw-bold fs-2">
+                    {{ (product.price / 100)|number_format(2, ',', '.') }} €
+                </p>
+                <div class="row">
+                    <div id="addToCart">
+                        <a class="btn btn-uniblue mt-2 me-2" href="{{ path('add_to_cart', { 'id' : product.id }) }}" role="button">
+                            Ajouter au panier
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+{% endblock %}

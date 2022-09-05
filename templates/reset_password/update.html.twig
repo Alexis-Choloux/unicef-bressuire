@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mot de passe oublié - Unicef Bressuire
+{% endblock %}
+
+{% block css %}
+    <link href="{{ asset('assets/css/effects.css') }}" rel="stylesheet"/> 
+	<link href="{{ asset('assets/css/login-register.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+	<div class="container col-md-8 offset-md-2 mt-3 mb-5">
+
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-warning">{{ message }}</div>
+        {% endfor %}
+
+        <h1 class="h3 mb-3 font-weight-normal">Réinitialisation du mot de passe</h1>
+
+        <div class="authForm">
+            {{ form(form) }}
+        </div>
+
+	</div>
+{% endblock %}

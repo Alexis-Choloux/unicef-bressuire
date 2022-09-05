@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produits - Unicef Bressuire
+{% endblock %}
+
+{% block css %}
+<link href="{{ asset('assets/css/product.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+	<div class="container mt-3 mb-5">
+
+		<div class="row">
+
+			<div class="col-md-2 mb-4" id="filter">
+				{{ form_start(form) }}
+				{{ form_row(form.string) }}
+				<hr>
+				{{ form_row(form.submit) }}
+				{{ form_row(form.categories) }}
+				{{ form_end(form) }}
+			</div>
+
+				<div class="col-md-8">
+					<h1>Nos produits</h1>
+
+					<div class="row mt-4">
+						{% for product in products %}
+							<div class="col-md-4 mb-3">
+								<a href="{{ path('product', { 'slug' : product.slug }) }}">
+									<div class="card productCard">
+										<img src="assets/images/products/{{ product.image }}" class="card-img-top" alt="{{ product.slug }}">
+										<div class="card-body productCardBody">
+											<h5 class="card-title text-dark">
+												{{ product.name }}
+											</h5>
+											<p class="card-text text-uniblack">
+												{{ product.subtitle|length > 80 ? product.subtitle|slice(0, 80) ~ '...' : product.subtitle }}
+											</p>
+											<p class="text-uniblue text-end">
+												{{ (product.price / 100)|number_format(2, ',', '.') }}
+												€
+											</p>
+										</div>
+									</div>
+								</a>
+							</div>
+
+						{% endfor %}
+						{% if products == null %}
+							<div>Aucun produit proposé à la vente actuellement. Revenez plus tard !</div>
+						{% endif %}
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	{% endblock %}

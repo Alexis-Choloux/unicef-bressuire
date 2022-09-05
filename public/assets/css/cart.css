@@ -1,0 +1,31 @@
+#cartDetail {
+    animation: ease-out 600ms slideIn;
+}
+
+.cart-image {
+    width: 150px;
+}
+
+.cart-td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+#cartConfirm {
+    animation: ease-out 900ms slideInLeft;
+}
+
+@media screen and (max-width: 765px) {
+    #productName {
+        display: flex;
+        flex-direction: column;
+    }
+    .disableOnMobile {
+        display: none;
+    }
+    #deleteProduct {
+        position: absolute;
+        margin-top: -40px;
+        margin-left: -50px;
+    }
+}

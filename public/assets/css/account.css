@@ -1,0 +1,107 @@
+/* INDEX */
+#profilLogo {
+    font-size: 200px;
+    color: rgba(0, 0, 0, 0.719);
+}
+
+#profilLogo i {
+    animation: 350ms ease-out slideInLeft;
+}
+
+#detailAccount {
+    animation: 700ms ease-out slideInLeft;
+}
+
+.account-card {
+    transition: 300ms;
+}
+.account-card:hover {
+    transition: 300ms;
+    box-shadow: 5px 5px 20px rgba(128, 128, 128, 0.26);
+}
+
+#passwordCard {
+    color: #00aeef;
+}
+#passwordCard:hover {
+    color: #007aa7;
+}
+
+#addressCard {
+    color: #ffc107d0;
+}
+#addressCard:hover {
+    color: #f0b402;
+}
+
+#orderCard {
+    color: #479f76;
+}
+#orderCard:hover {
+    color: #146c43;
+}
+
+
+/* ADDRESS */
+#addresses {
+    animation: 500ms ease-out slideInLeft;
+}
+
+.card {
+    height: 100%;
+}
+
+@media screen and (max-width: 1100px) {
+    #addressesContainer {
+        width: 100vw;
+        margin-left: 0 !important;
+    }
+    .card {
+        height: 100%;
+    }
+}
+@media screen and (max-width: 765px) {
+    #addresses {
+        margin-left: 0 !important;
+    }
+    .card {
+        width: 90vw;
+    }
+}
+
+/* ORDER */
+@media screen and (max-width: 950px) {
+    #orderContainer {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #tableRow {
+        height: 170px;
+    }
+    .disableOnMobile {
+        display: none;
+    }
+    #date {
+        position: absolute;
+        margin-top: 40px;
+        margin-left: -260px;
+    }
+    #state {
+        position: absolute;
+        margin-top: 40px;
+        margin-left: -180px;
+    }
+    #total {
+        position: absolute;
+        margin-top: 80px;
+        margin-left: -290px;
+    }
+    #detailBtn {
+        position: absolute;
+        margin-top: 80px;
+        margin-left: -180px;
+    }
+}
+

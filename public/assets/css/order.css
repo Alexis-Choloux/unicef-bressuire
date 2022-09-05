@@ -1,0 +1,81 @@
+.cart-image {
+    width: 150px;
+}
+
+#order_addresses {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#order legend {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.726);
+}
+
+#order_addresses .form-check-input {
+    position: absolute;
+    display: flex;
+    margin: 0 0 0 120px;
+}
+
+#order_addresses .form-check {
+    font-size: 12px;
+    background-color: #00afef52;
+    margin: 0 10px 10px 0;
+    padding: 5px 10px 5px 10px;
+    width: 150px;
+    transition: 300ms;
+}
+#order_addresses .form-check:hover {
+    transition: 300ms;
+    background-color: #00aeef;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(128, 128, 128, 0.616);
+    color: rgb(0, 0, 90);
+}
+
+#order_cacaddresses {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.animationSlideIn {
+    animation: 300ms ease-out slideIn;
+}
+
+#order_cacaddresses .form-check { 
+    font-size: 14px;
+    margin: 0 15px 10px 0;
+    width: 220px;
+    padding: 5px 10px 5px 10px;
+    background-color: #ffe1014d;
+    transition: 300ms;
+}
+#order_cacaddresses .form-check:hover {
+    transition: 300ms;
+    background-color: #ffd001;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(128, 128, 128, 0.616);
+    color: #685500;
+}
+
+#order_cacaddresses .form-check-input {
+    position: absolute;
+    display: flex;
+    margin: 0 0 0 190px;
+}
+
+#order_contact_preference .form-check .form-check-input {
+    margin: 5px 5px 0 5px;
+}
+
+#addContactLink {
+    font-size: 12px;
+}
+
+@media screen and (max-width: 440px) {
+    #orderBtn {
+        margin-top: 15px;
+    }
+}

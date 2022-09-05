@@ -1,0 +1,139 @@
+/* DOCUMENT INFORMATION
+    Name: Unicef Bressuire
+    Version: 1.0.0
+    Author: Alexis Choloux
+    Date: 01/03/2021
+
+Fonts
+    h1, h2, h3, h4, h5, h6, a= 'Rubik', sans-serif; // font-weight: bold;
+    p= 'Roboto', sans-serif;
+
+Colors
+    -Primary= #00aeef // blue Unicef
+    -Secondary= #1e1e1e // black
+    -Special= #ffe101 // yellow
+
+CSS/HTML DIRECTORY
+    1. Fonts
+    2. Text color classes
+    3. Background color classes
+    4. Links
+    5. Buttons
+    6. Top-header / Navbar
+    7. Footer
+*/
+
+
+/* FONTS */
+h1, h2, h3, h4, h5, h6, a {
+    font-family: 'Rubik', 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+p, li {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* TEXT COLOR CLASSES */
+.text-uniblue {
+    color: #00aeef;
+}
+
+.text-uniblue-border {
+    color: white;
+    font-size: 50px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #00aeef;
+}
+
+.text-uniblack {
+    color: #1e1e1e;
+}
+
+.text-uniyellow {
+    color: #ffe101;
+}
+
+
+/* BACKGROUND COLOR CLASSES */
+.bg-uniblue {
+    background-color: #00aeef;
+}
+
+.bg-uniblack {
+    background-color: #1e1e1e;
+}
+
+.bg-uniyellow {
+    background-color: #ffe101;
+}
+
+.bg-grey {
+    background-color: #f1f1f1;
+}
+
+
+/* LINKS */
+a {
+    text-decoration: none;
+}
+
+
+/* BUTTONS */
+.btn-uniblue {
+    padding: 5px 15px 5px 15px;
+    background-color: #00aeef;
+    color: #1e1e1e;
+    border-radius: 50px;
+    transition: 300ms;
+}
+.btn-uniblue:hover {
+    transition: 300ms;
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px rgba(128, 128, 128, 0.432);
+    background-color: #04bcff;
+}
+
+.btn-uniyellow {
+    padding: 5px 15px 5px 15px;
+    background-color: #ffe101e8;
+    color: #1e1e1e;
+    border-radius: 50px;
+    transition: 300ms;
+}
+.btn-uniyellow:hover {
+    transition: 300ms;
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px rgba(128, 128, 128, 0.432);
+    background-color: #ffe101;
+}
+
+/* TOP-HEADER / NAVBAR */
+
+#uncief-bressuire-logo {
+    height: 70px;
+    margin: 20px 0 20px 20px;
+}
+@media screen and (max-width: 575px) {
+    #uncief-bressuire-logo {
+        width: 90%;
+        height: auto;
+    }
+}
+.dropdown-item:hover {
+    color: #048ec0;
+}
+.auth-link:hover {
+    color: white;
+}
+
+
+/* FOOTER */
+footer {
+    clear: both;
+    width: 100%;
+    bottom: 0;
+    background-color: #1e1e1e;
+    color: white;
+}

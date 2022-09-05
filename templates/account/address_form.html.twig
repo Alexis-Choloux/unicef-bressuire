@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter des coordonnées - Unicef Bressuire
+{% endblock %}
+
+{% block content %}
+	<div class="container col-md-8 offset-md-2 mt-3 mb-5">
+		<h2>Gestion des coordonnées</h2>
+		<p>Vos coordonnées sont indispensables pour procéder à un achat en 'Cliquez-Retirez' (Click&Collect) sur notre site. Elles nous permettent d'entrer en contact avec vous, si nécessaire.</p>
+
+		{{ form_start(form) }}
+		<div class="row">
+			<div class="col-md-6 offset-md-1">
+				<div class="row">
+					<div class="col-md-6 mt-2">
+						{{ form_row(form.address) }}
+					</div>
+					<div class="col-md-6 mt-2">
+						{{ form_row(form.postal) }}
+					</div>
+				</div>
+                <div class="mt-2">
+                    {{ form_row(form.city) }}
+                </div>
+                <div class="mt-2">
+                    {{ form_row(form.phone) }}
+                </div>
+                <div class="mt-3 text-end">
+                    {{ form_row(form.submit) }}
+                </div>
+			</div>
+		</div>
+		{{ form_end(form) }}
+	</div>
+{% endblock %}

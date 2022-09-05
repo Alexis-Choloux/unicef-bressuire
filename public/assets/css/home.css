@@ -1,0 +1,67 @@
+#hero {
+    background-color: #1e1e1e;
+}
+
+#videoContainer {
+    margin-bottom: -5px;
+}
+
+#heroVideo {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    height: 550px;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
+}
+@media screen and (max-width: 1420px) {
+    #heroVideo {
+        width: 100%;
+        height: auto;
+    }
+}
+  
+#heroBtn {
+    background-color: transparent;
+    border: none;
+    color: #c72535;
+    animation: 700ms ease-out slideInLeft;
+}
+#heroBtn:hover {
+    transition: 300ms;
+    color: #f82b3f;
+}
+@media screen and (max-width: 765px) {
+    #heroBtn {
+        font-size: 10px;
+    }
+}
+  
+
+#heroSource {
+    animation: 900ms ease-out slideIn;
+}
+
+#heroLink {
+    color: #c72535;
+    transition: 300ms;
+}
+#heroLink:hover {
+    transition: 300ms;
+    color: #f82b3f;
+}
+
+.home-card {
+    box-shadow: 0 3px 3px -2px rgba(0,0,0,0.1), 
+    0 3px 4px 0 rgba(0,0,0,0.14), 
+    0 1px 8px 0 rgba(0,0,0,0.12);
+    -moz-box-shadow: 0 3px 3px -2px rgba(0,0,0,0.1), 
+    0 3px 4px 0 rgba(0,0,0,0.14), 
+    0 1px 8px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 3px 3px -2px rgba(0,0,0,0.1), 
+    0 3px 4px 0 rgba(0,0,0,0.14), 
+    0 1px 8px 0 rgba(0,0,0,0.12);
+}
+
+.actingSection {
+    border-right: 1px solid white;
+}

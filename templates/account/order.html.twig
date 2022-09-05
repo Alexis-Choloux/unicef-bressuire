@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes commandes - Unicef Bressuire
+{% endblock %}
+
+{% block css %}
+<link href="{{ asset('assets/css/account.css') }}" rel="stylesheet"/> 
+{% endblock %}
+
+{% block content %}
+	<div class="container col-md-8 offset-md-2 mt-3 mb-5" id="orderContainer">
+		<h2>Mes commandes</h2>
+
+		{% if orders|length == 0 %}
+			<p>Vous n'avez pas encore passé de commandes.</p>
+		{% else %}
+			<p class="fst-italic ms-2 text-muted">
+				* Retrouvez toutes vos commandes réalisées sur notre site, et leur statut de livraison *
+			</p>
+			<table class="table table-hover mt-3">
+				<thead>
+					<tr>
+						<th scope="col" class="disableOnMobile">Référence</th>
+						<th scope="col" class="text-center disableOnMobile">Date</th>
+						<th scope="col" class="text-center disableOnMobile">Statut</th>
+						<th scope="col" class="text-center disableOnMobile">Produit(s)</th>
+						<th scope="col" class="text-end disableOnMobile">Montant</th>
+						<th scope="col" class="text-center disableOnMobile">Détails</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for order in orders %}
+						<tr id="tableRow">
+							<td>
+								<span class="badge rounded-pill bg-warning text-dark mt-1">
+									{{ order.orderId }}
+								</span>
+							</td>
+							<td class="text-center">
+								<div id="date">
+									{{ order.createdAt|date('d/m/Y') }}
+								</div>
+							</td>
+							<td class="text-center">
+								<div id="state">
+									{% if order.state == 0 %}
+										En cours de préparation
+									{% elseif order.state == 1 %}
+										Prête
+									{% elseif order.state == 2 %}
+										Réceptionnée
+									{% endif %}
+								</div>
+							</td>
+							<td class="text-center disableOnMobile">
+								{{ order.orderDetails|length }}
+							</td>
+							<td class="text-end">
+								<div id="total">
+									{{ (order.getTotal / 100)|number_format('2', ',', '.') }}
+									€
+								</div>
+							</td>
+							<td class="text-center">
+								<a class="btn btn-sm btn-uniblue" href="{{ path('account_order_show', {'ref': order.id}) }}" role="button" id="detailBtn">
+									Détails
+								</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+
+			{% endif %}
+		</table>
+	</div>
+{% endblock %}

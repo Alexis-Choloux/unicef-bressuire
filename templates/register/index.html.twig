@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription - Unicef Bressuire{% endblock %}
+
+{% block css %}
+	<link href="{{ asset('assets/css/effects.css') }}" rel="stylesheet"/> 
+	<link href="{{ asset('assets/css/login-register.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+    <div class="row mb-5">
+
+        {% if notification %}
+            <div class="alert alert-info">
+                <div class="col-md-10 offset-md-1">
+                    {{ notification }}
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="col-md-8 offset-md-2 mt-3">
+            <h1>Inscription</h1>
+            <div class="row" id="register">
+                <div class="col-md-6 offset-md-1 mt-3 authForm">
+                    {{ form_start(form) }}
+                    {{ form_row(form.firstname) }}
+                    {{ form_row(form.lastname) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.password) }}
+                    <div class="text-end">
+                        {{ form_row(form.submit) }}
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
